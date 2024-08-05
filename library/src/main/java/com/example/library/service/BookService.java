@@ -14,12 +14,12 @@ public class BookService {
     @Autowired
     private BookRepo bookRepo;
 
-    public List<Book> getAllAuthors()
+    public List<Book> getAllBooks()
     {
         return bookRepo.findAll();
     }
     public Book getBookById(int id){
-        return bookRepo.findById(id).orElseThrow(()-> new RuntimeException("Given id is incorrect"));
+        return bookRepo.findById(id).orElse(null);
     }
     public Book saveOrUpdateBook(Book book)
     {

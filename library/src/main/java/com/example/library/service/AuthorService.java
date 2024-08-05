@@ -19,7 +19,7 @@ public class AuthorService {
         return authorRepo.findAll();
     }
     public Author getAuthorById(int id){
-        return authorRepo.findById(id).orElseThrow(()-> new RuntimeException("Given id is incorrect"));
+        return authorRepo.findById(id).orElse(null);
     }
     public Author saveOrUpdateAuthor(Author author)
     {
