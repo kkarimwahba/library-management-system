@@ -30,7 +30,8 @@ public class Book {
                joinColumns={@JoinColumn(name = "book_id")},
                inverseJoinColumns={@JoinColumn(name="category_id")})
     private List<Category> categories;
-    
+
+  
     private int isbn;
     private String publicationYear;
 
@@ -53,14 +54,21 @@ public class Book {
         this.title = title;
     }
 
-    public List<Author> getAuthors() {  // Changed from 'getAuthor' to 'getAuthors'
+    public List<Author> getAuthors() {  
         return this.authors;
     }
 
-    public void setAuthors(List<Author> authors) {  // Changed from 'setAuthor' to 'setAuthors'
+    public void setAuthors(List<Author> authors) {  
         this.authors = authors;
     }
+    public List<Category> getCategories() {
+        return this.categories;
+    }
 
+    public void setCategories(List<Category> categories) {
+        this.categories = categories;
+    }
+    
     public int getIsbn() {
         return this.isbn;
     }
