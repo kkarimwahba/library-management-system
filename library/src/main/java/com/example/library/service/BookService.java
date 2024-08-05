@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 import com.example.library.entity.Book;
 import com.example.library.repo.BookRepo;
 
-import jakarta.persistence.Cacheable;
 
 @Service
 public class BookService {
@@ -16,13 +15,7 @@ public class BookService {
     @Autowired
     private BookRepo bookRepo;
 
-    @Cacheable("books")
     public List<Book> getAllBooks() {
-        try {
-            Thread.sleep(3000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
         return bookRepo.findAll();
     }
     public Book getBookById(int id){
