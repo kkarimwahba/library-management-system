@@ -18,20 +18,19 @@ import jakarta.persistence.Table;
 public class Category {
 
     @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     @Column
     private String name;
 
-
-    @ManyToMany(mappedBy = "authors",cascade = CascadeType.ALL)
+    @ManyToMany(mappedBy = "categories", cascade = CascadeType.ALL)
     @JsonIgnore
     private List<Book> books;
 
-    public Category(){
+    public Category() {}
 
-    }
+    // Getters and setters
     public int getId() {
         return this.id;
     }
@@ -47,6 +46,7 @@ public class Category {
     public void setName(String name) {
         this.name = name;
     }
+
     public List<Book> getBooks() {
         return this.books;
     }
@@ -54,5 +54,4 @@ public class Category {
     public void setBooks(List<Book> books) {
         this.books = books;
     }
-
 }

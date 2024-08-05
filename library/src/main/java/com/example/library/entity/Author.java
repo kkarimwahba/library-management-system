@@ -18,23 +18,17 @@ public class Author {
 
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
-
     private int id;
 
     private String name;
 
-
-    @ManyToMany(mappedBy = "authors",cascade = CascadeType.ALL)
+    @ManyToMany(mappedBy = "authors", cascade = CascadeType.ALL)
     @JsonIgnore
     private List<Book> books;
 
+    public Author() {}
 
-    
-    public Author(){
-
-    }
-
-
+    // Getters and setters
     public int getId() {
         return this.id;
     }
@@ -50,6 +44,7 @@ public class Author {
     public void setName(String name) {
         this.name = name;
     }
+
     public List<Book> getBooks() {
         return this.books;
     }
